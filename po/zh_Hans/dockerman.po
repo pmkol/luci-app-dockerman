@@ -745,6 +745,7 @@ msgstr "资源"
 
 #: applications/luci-app-dockerman/luasrc/model/cbi/dockerman/container.lua:227
 #: applications/luci-app-dockerman/luasrc/model/cbi/dockerman/containers.lua:202
+#: applications/luci-app-dockerman/luasrc/model/cbi/dockerman/overview.lua:74
 msgid "Restart"
 msgstr "重启"
 
@@ -795,6 +796,7 @@ msgstr ""
 
 #: applications/luci-app-dockerman/luasrc/model/cbi/dockerman/container.lua:218
 #: applications/luci-app-dockerman/luasrc/model/cbi/dockerman/containers.lua:193
+#: applications/luci-app-dockerman/luasrc/model/cbi/dockerman/overview.lua:55
 msgid "Start"
 msgstr "启动"
 
@@ -815,6 +817,7 @@ msgstr "状态"
 
 #: applications/luci-app-dockerman/luasrc/model/cbi/dockerman/container.lua:236
 #: applications/luci-app-dockerman/luasrc/model/cbi/dockerman/containers.lua:211
+#: applications/luci-app-dockerman/luasrc/model/cbi/dockerman/overview.lua:55
 msgid "Stop"
 msgstr "停止"
 
@@ -951,3 +954,7 @@ msgid ""
 msgstr ""
 "按下导入按钮时，既可以将本地镜像文件加载到系统上，也可以从远程下载有效的Tar格"
 "式的镜像文件。"
+
+#: applications/luci-app-dockerman/luasrc/model/cbi/dockerman/overview.lua:140
+msgid "Cannot connect to Docker daemon. Is the docker daemon running?"
+msgstr "无法连接到 Docker 守护进程，Docker 是否已启动？"
