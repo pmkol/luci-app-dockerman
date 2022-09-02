@@ -1,3 +1,11 @@
+<%
+local fs = require "nixio.fs"
+local uci = require 'luci.model.uci'.cursor()
+local mode = 'normal'
+if fs.access('/etc/config/argon') then
+	mode = uci:get_first('argon', 'global', 'mode')
+end
+-%>
 <style>
 	/*!
 	Pure v1.0.1
@@ -119,6 +127,31 @@
 			box-shadow: 0 0 1rem 0 rgba(136, 152, 170, .75);
 		}
 	}
+
+	.shadow {
+		background-color: #e6e6e6;
+		border-radius: 0.375rem;
+	}
+	@media (prefers-color-scheme: dark) {
+		.shadow {
+			background-color: #313131;
+			border-radius: 0.375rem;
+		}
+		.block {
+			border: 3px solid #2a2a2a;
+			box-shadow: none;
+		}
+	}
+	<% if mode == 'dark' then %>
+		.shadow {
+			background-color: #313131;
+			border-radius: 0.375rem;
+		}
+		.block {
+			border: 3px solid #2a2a2a;
+			box-shadow: none;
+		}
+	<% end -%>
 </style>
 
 <div class="pure-g status">
@@ -131,7 +164,7 @@
 			</div>
 			<div class="pure-u-3-5">
 				<h4 style="text-align: right; font-size: 1rem"><%:Containers%></h4>
-				<h4 style="text-align: right;">
+				<h4 class="shadow" style="text-align: right;">
 					<%- if self.containers_total ~= "-" then -%><a href='<%=luci.dispatcher.build_url("admin/docker/containers")%>'><%- end -%>
 					<span style="font-size: 2rem; color: #2dce89;"><%=self.containers_running%></span>
 					<span style="font-size: 1rem; color: #8898aa !important;">/<%=self.containers_total%></span>
@@ -149,7 +182,7 @@
 			</div>
 			<div class="pure-u-3-5">
 				<h4 style="text-align: right; font-size: 1rem"><%:Images%></h4>
-				<h4 style="text-align: right;">
+				<h4 class="shadow" style="text-align: right;">
 					<%- if self.images_total ~= "-" then -%><a href='<%=luci.dispatcher.build_url("admin/docker/images")%>'><%- end -%>
 					<span style="font-size: 2rem; color: #2dce89;"><%=self.images_used%></span>
 					<span style="font-size: 1rem; color: #8898aa !important;">/<%=self.images_total%></span>
@@ -167,7 +200,7 @@
 			</div>
 			<div class="pure-u-3-5">
 				<h4 style="text-align: right; font-size: 1rem"><%:Networks%></h4>
-				<h4 style="text-align: right;">
+				<h4 class="shadow" style="text-align: right;">
 					<%- if self.networks_total ~= "-" then -%><a href='<%=luci.dispatcher.build_url("admin/docker/networks")%>'><%- end -%>
 					<span style="font-size: 2rem; color: #2dce89;"><%=self.networks_total%></span>
 					<!-- <span style="font-size: 1rem; color: #8898aa !important;">/20</span> -->
@@ -185,7 +218,7 @@
 			</div>
 			<div class="pure-u-3-5">
 				<h4 style="text-align: right; font-size: 1rem"><%:Volumes%></h4>
-				<h4 style="text-align: right;">
+				<h4 class="shadow" style="text-align: right;">
 					<%- if self.volumes_total ~= "-" then -%><a href='<%=luci.dispatcher.build_url("admin/docker/volumes")%>'><%- end -%>
 					<span style="font-size: 2rem; color: #2dce89;"><%=self.volumes_total%></span>
 					<!-- <span style="font-size: 1rem; color: #8898aa !important;">/20</span> -->
