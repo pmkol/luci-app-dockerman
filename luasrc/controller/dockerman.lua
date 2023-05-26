@@ -10,31 +10,12 @@ module("luci.controller.dockerman",package.seeall)
 function index()
 	entry({"admin", "docker"}, firstchild(), _("Docker"), 40).acl_depends = { "luci-app-dockerman" }
 	entry({"admin", "docker", "overview"},cbi("dockerman/overview"),_("Overview"), 1).leaf=true
-	entry({"admin", "docker", "config"},cbi("dockerman/configuration"),_("Configuration"), 7).leaf=true
-
-	local remote = luci.model.uci.cursor():get_bool("dockerd", "globals", "remote_endpoint")
-	if remote then
-		local host = luci.model.uci.cursor():get("dockerd", "globals", "remote_host")
-		local port = luci.model.uci.cursor():get("dockerd", "globals", "remote_port")
-		if not host or not port then
-			return
-		end
-	else
-		local socket = luci.model.uci.cursor():get("dockerd", "globals", "socket_path") or "/var/run/docker.sock"
-		if socket and not nixio.fs.access(socket) then
-			return
-		end
-	end
-
-	if (require "luci.model.docker").new():_ping().code ~= 200 then
-		return
-	end
-
 	entry({"admin", "docker", "containers"}, form("dockerman/containers"), _("Containers"), 2).leaf=true
 	entry({"admin", "docker", "images"}, form("dockerman/images"), _("Images"), 3).leaf=true
 	entry({"admin", "docker", "networks"}, form("dockerman/networks"), _("Networks"), 4).leaf=true
 	entry({"admin", "docker", "volumes"}, form("dockerman/volumes"), _("Volumes"), 5).leaf=true
 	entry({"admin", "docker", "events"}, call("action_events"), _("Events"), 6)
+	entry({"admin", "docker", "config"},cbi("dockerman/configuration"),_("Configuration"), 7).leaf=true
 
 	entry({"admin", "docker", "newcontainer"}, form("dockerman/newcontainer")).leaf=true
 	entry({"admin", "docker", "newnetwork"}, form("dockerman/newnetwork")).leaf=true
