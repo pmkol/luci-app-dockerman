@@ -8,7 +8,7 @@ local docker = require "luci.model.docker"
 module("luci.controller.dockerman",package.seeall)
 
 function index()
-	entry({"admin", "docker"}, firstchild(), _("Docker"), 40).acl_depends = { "luci-app-dockerman" }
+	entry({"admin", "docker"}, firstchild(), _("Docker"), 41).acl_depends = { "luci-app-dockerman" }
 	entry({"admin", "docker", "overview"},cbi("dockerman/overview"),_("Overview"), 1).leaf=true
 	entry({"admin", "docker", "containers"}, form("dockerman/containers"), _("Containers"), 2).leaf=true
 	entry({"admin", "docker", "images"}, form("dockerman/images"), _("Images"), 3).leaf=true
