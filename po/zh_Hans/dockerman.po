@@ -958,3 +958,15 @@ msgstr ""
 #: applications/luci-app-dockerman/luasrc/model/cbi/dockerman/overview.lua:140
 msgid "Cannot connect to Docker daemon. Is the docker daemon running?"
 msgstr "无法连接到 Docker 守护进程，Docker 是否已启动？"
+
+msgid "Enable BuildKit"
+msgstr "启用 BuildKit"
+
+msgid "BuildKit is an improved backend to replace the legacy builder."
+msgstr "BuildKit 是一个改进的后端，用于替代传统的构建器"
+
+msgid "Experimental Features"
+msgstr "实验性功能"
+
+msgid "Enable Docker experimental features."
+msgstr "启用 Docker 实验性功能（experimental）"

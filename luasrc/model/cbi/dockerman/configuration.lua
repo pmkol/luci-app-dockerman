@@ -14,6 +14,16 @@ o = s:option(Flag, "remote_endpoint",
 	translate("Connect to remote endpoint"))
 o.rmempty = false
 
+o = s:option(Flag, "buildkit",
+	translate("Enable BuildKit"),
+	translate("BuildKit is an improved backend to replace the legacy builder."))
+o.rmempty = false
+
+o = s:option(Flag, "experimental",
+	translate("Experimental Features"),
+	translate("Enable Docker experimental features."))
+o.rmempty = false
+
 o = s:option(Value, "remote_host",
 	translate("Remote Host"),
 	translate("Host or IP Address for the connection to a remote docker instance"))
