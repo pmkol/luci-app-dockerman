@@ -103,7 +103,7 @@ msgid "CPU Shares Weight"
 msgstr "CPU 共享权重"
 
 #: applications/luci-app-dockerman/luasrc/model/cbi/dockerman/container.lua:770
-msgid "CPU Useage"
+msgid "CPU Usage"
 msgstr "CPU 使用率"
 
 #: applications/luci-app-dockerman/luasrc/model/cbi/dockerman/newcontainer.lua:621
@@ -523,7 +523,7 @@ msgstr "负载"
 
 #: applications/luci-app-dockerman/luasrc/model/cbi/dockerman/configuration.lua:54
 msgid "Log Level"
-msgstr "日志等级"
+msgstr "日志级别"
 
 #: applications/luci-app-dockerman/luasrc/model/cbi/dockerman/newcontainer.lua:646
 msgid "Log driver options"
@@ -543,7 +543,7 @@ msgid "Memory"
 msgstr "内存"
 
 #: applications/luci-app-dockerman/luasrc/model/cbi/dockerman/container.lua:774
-msgid "Memory Useage"
+msgid "Memory Usage"
 msgstr "内存使用率"
 
 #: applications/luci-app-dockerman/luasrc/model/cbi/dockerman/newcontainer.lua:630
